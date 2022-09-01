@@ -1,4 +1,4 @@
-
+import time
 
 def euclid(x, y):
     if(x == 0):
@@ -18,8 +18,15 @@ def euclid(x, y):
             y = mod
         return x
 
-# test = euclid(23, 0)
-# print(test)
+begin = time.time()
+
+test = euclid(56212, 789744)
+print(test)
+
+time.sleep (1)
+end = time.time()
+
+print("algorithm time:", end - begin)
 
 def int_check(a, b):
     t = a
@@ -35,5 +42,11 @@ def int_check(a, b):
             t -= 1
 
 
-test = int_check(666, 210)
+begin = time.time()
+
+test = int_check(56212, 789744)
 print(test)
+
+time.sleep (1)
+end = time.time()
+print("algorithm time:", end - begin)
