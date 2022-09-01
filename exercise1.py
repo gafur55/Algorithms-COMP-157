@@ -1,4 +1,5 @@
-import time
+from array import array
+# import time
 
 def euclid(x, y):
     if(x == 0):
@@ -18,15 +19,15 @@ def euclid(x, y):
             y = mod
         return x
 
-begin = time.time()
+# begin = time.time()
 
-test = euclid(56212, 789744)
-print(test)
+# test = euclid(56212, 789744)
+# print(test)
 
-time.sleep (1)
-end = time.time()
+# time.sleep (1)
+# end = time.time()
 
-print("algorithm time:", end - begin)
+# print("algorithm time:", end - begin)
 
 def int_check(a, b):
     t = a
@@ -42,11 +43,38 @@ def int_check(a, b):
             t -= 1
 
 
-begin = time.time()
+# begin = time.time()
 
-test = int_check(56212, 789744)
-print(test)
+# test = int_check(0,0)
+# print(test)
 
-time.sleep (1)
-end = time.time()
-print("algorithm time:", end - begin)
+# time.sleep (1)
+# end = time.time()
+# print("algorithm time:", end - begin)
+
+
+def prime_factorization(a):
+    arr = [True] * (a + 1)
+    for i in range(2, a + 1):
+        if(arr[i] == True):
+            t = 2
+            
+            while(t < len(arr)):
+                z = i
+                z = t * z
+                if(z >= len(arr)):
+                    break
+                else:
+                    arr[z] = False
+                t += 1
+
+
+
+    arr2 = []
+    for x in range(1, len(arr)):
+        if(arr[x] == True):
+            arr2.append(x)
+
+    print(arr2)
+
+prime_factorization(121)
