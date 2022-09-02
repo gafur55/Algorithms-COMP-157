@@ -1,5 +1,5 @@
 from array import array
-# import time
+import time
 
 def euclid(x, y):
     if(x == 0):
@@ -19,15 +19,15 @@ def euclid(x, y):
             y = mod
         return x
 
-# begin = time.time()
+begin = time.time()
 
-# test = euclid(56212, 789744)
-# print(test)
+test = euclid(60, 24)
+print(test)
 
-# time.sleep (1)
-# end = time.time()
+time.sleep (1)
+end = time.time()
 
-# print("algorithm time:", end - begin)
+print("algorithm time:", end - begin)
 
 def int_check(a, b):
     t = a
@@ -43,14 +43,14 @@ def int_check(a, b):
             t -= 1
 
 
-# begin = time.time()
+begin = time.time()
 
-# test = int_check(0,0)
-# print(test)
+test = int_check(60, 24)
+print(test)
 
-# time.sleep (1)
-# end = time.time()
-# print("algorithm time:", end - begin)
+time.sleep (1)
+end = time.time()
+print("algorithm time:", end - begin)
 
 
 def prime_factorization(a):
@@ -67,14 +67,65 @@ def prime_factorization(a):
                 else:
                     arr[z] = False
                 t += 1
-
-
-
     arr2 = []
     for x in range(1, len(arr)):
         if(arr[x] == True):
             arr2.append(x)
 
-    print(arr2)
+    return arr2
 
-prime_factorization(121)
+# print(prime_factorization(121))
+
+
+def mid_school_gcd(m, n):
+    arr1 = prime_factorization(m)
+    arr2 = prime_factorization(n)
+
+    arr1.remove(1)
+    arr2.remove(1)
+
+    arr3 = []
+    arr4 = []
+
+    for x in arr1:
+        if(m % x == 0):
+            arr3.append(x)
+
+    for y in arr2:
+        if(n % y == 0):
+            arr4.append(y)
+
+    factor1 = []
+    factor2 = []
+    
+    for x in arr3:
+        while(m % x == 0):
+            factor1.append(x)
+            m /= x
+
+    for x in arr4:
+        while(n % x == 0):
+            factor2.append(x)
+            n /= x
+
+
+
+    mult = 1
+
+    for x in factor1:
+        for y in factor2:
+            if (x == y):
+                mult *= x
+                factor2.remove(y)
+                continue
+        factor1.remove(x)
+    
+    return mult
+
+begin = time.time()
+
+print(mid_school_gcd(60, 24))
+time.sleep (1)
+end = time.time()
+
+print("algorithm time:", end - begin)
