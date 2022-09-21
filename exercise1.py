@@ -22,7 +22,7 @@ def euclid(x, y):
 begin = time.time()
 
 test = euclid(60, 24)
-print(test)
+# print(test)
 
 time.sleep (1)
 end = time.time()
@@ -46,7 +46,7 @@ def int_check(a, b):
 begin = time.time()
 
 test = int_check(60, 24)
-print(test)
+# print(test)
 
 time.sleep (1)
 end = time.time()
@@ -124,7 +124,7 @@ def mid_school_gcd(m, n):
 
 begin = time.time()
 
-print(mid_school_gcd(60, 24))
+# print(mid_school_gcd(60, 24))
 time.sleep (1)
 end = time.time()
 
