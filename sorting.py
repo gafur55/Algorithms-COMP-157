@@ -18,8 +18,10 @@ def bubble_sort(arr):
                 # print(arr)
 
 # problematic!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#problem is with the equal numbers in one array. For example, arr = [55, 22, 34, 6, 21, 5, 1] will return [1, 5, 6, 34, 22, 22, 55]
+#the sudo code never handles this condition
 def selection_sort(arr):
-    for i in range(len(arr) - 1):
+    for i in range(len(arr)):
         min = i
         for j in range(i + 1, len(arr)):
             if arr[j] < arr[min]:
@@ -30,11 +32,12 @@ def selection_sort(arr):
 
 
 def main():
-    for i in [10, 100, 1000, 10000, 100000, 1000000]:
-        arr = []
+    nums = [10, 10, 10, 10]
+    for i in nums:
+        arr = [0] * i   
         for j in range(i):
             x = random.randrange(0, 100)
-            arr.append(x)
+            arr[j] = x
         print("before sorting \n", arr)
         # bubble_sort(arr)
         selection_sort(arr)
