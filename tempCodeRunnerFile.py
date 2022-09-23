@@ -1,1 +1,6 @@
-print(prime_factorization(121))
+
+        # selection_sort(x)
+        # print(x)
+
+if __name__ == "__main__":
+    main()

@@ -1,4 +1,4 @@
-from numpy import random
+import random
 
 def swap(arr, x, y):
     # print(arr[arr.index(x)], arr[arr.index(y)])
@@ -17,23 +17,30 @@ def bubble_sort(arr):
                 swap(arr, arr[j], arr[j+1])
                 # print(arr)
 
+# problematic!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 def selection_sort(arr):
-    print(arr)
-    for i in range(len(arr)):
-        min = arr[i]
-        for j in range(i, len(arr)):
-            if arr[j] < min:
-                min = arr[j]
-        swap(arr, arr[i], min)
+    for i in range(len(arr) - 1):
+        min = i
+        for j in range(i + 1, len(arr)):
+            if arr[j] < arr[min]:
+                min = j
+        swap(arr, arr[i], arr[min])
         # print(arr)
 
 
 
 def main():
     for i in [10, 100, 1000, 10000, 100000, 1000000]:
-        x=random.randint(1000, size=(i))
-        bubble_sort(x)
-        selection_sort(x)
+        arr = []
+        for j in range(i):
+            x = random.randrange(0, 100)
+            arr.append(x)
+        print("before sorting \n", arr)
+        # bubble_sort(arr)
+        selection_sort(arr)
+        print("after sorting \n", arr)
+        # selection_sort(x)
+        # print(x)
 
 if __name__ == "__main__":
     main()
