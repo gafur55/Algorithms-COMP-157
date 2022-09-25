@@ -1,6 +1,8 @@
+from cProfile import label
 import random
 from selectors import SelectSelector
 import time
+import matplotlib.pyplot as plt
 
 def swap(arr, x, index_x, y, index_y):
     temp = x
@@ -13,11 +15,7 @@ def bubble_sort(arr):
         for j in range(len(arr) - i - 1):
             if arr[j] > arr[j+1]:
                 swap(arr, arr[j], j, arr[j+1], j+1)
-                # print(arr)
 
-# problematic!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#problem is with the equal numbers in one array. For example, arr = [55, 22, 34, 6, 21, 5, 1] will return [1, 5, 6, 34, 22, 22, 55]
-#the sudo code never handles this condition
 def selection_sort(arr):
     for i in range(len(arr)):
         min = i
@@ -30,6 +28,8 @@ def selection_sort(arr):
 
 
 def main():
+    b_sort = []
+    s_sort = []
     nums = [10, 100, 1000]
     for i in nums:
         arr = [0] * i   
@@ -41,6 +41,7 @@ def main():
         start = time.time()
         selection_sort(arr)
         end = time.time()
+        b_sort.append((end-start) * 10**3)
         print("timing for selection sort with ", len(arr), " sized array ---->", (end - start) * 10**3, "ms")
         # print("after sorting \n", arr)
 
@@ -50,13 +51,22 @@ def main():
         for j in range(i):
             x = random.randrange(0, 100)
             arr[j] = x
-        # print("before sorting \n", arr)
         start = time.time()
         bubble_sort(arr)
         end = time.time()
+        s_sort.append((end-start) * 10**3)
         print("timing for bubble sort with ", len(arr), " sized array ---->", (end - start) * 10**3, "ms")
-        # selection_sort(arr)
-        # print("after sorting \n", arr)
+
+    plt.plot(nums, b_sort, label = 'bubbleSort')
+    plt.plot(nums, s_sort, label = 'sortingLabel')
+    plt.xlabel('array size')
+    plt.ylabel('timing')
+    plt.legend()
+    plt.show()
+
+
+
+
 
 if __name__ == "__main__":
     main()
