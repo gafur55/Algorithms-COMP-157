@@ -24,7 +24,7 @@ begin = time.time()
 test = euclid(60, 24)
 # print(test)
 
-time.sleep (1)
+time.sleep(1)
 end = time.time()
 
 print("algorithm time:", end - begin)
