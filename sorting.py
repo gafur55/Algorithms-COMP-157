@@ -41,7 +41,7 @@ def main():
         start = time.time()
         selection_sort(arr)
         end = time.time()
-        b_sort.append((end-start) * 10**3)
+        s_sort.append((end-start) * 10**3)
         print("timing for selection sort with ", len(arr), " sized array ---->", (end - start) * 10**3, "ms")
         # print("after sorting \n", arr)
 
@@ -54,11 +54,11 @@ def main():
         start = time.time()
         bubble_sort(arr)
         end = time.time()
-        s_sort.append((end-start) * 10**3)
+        b_sort.append((end-start) * 10**3)
         print("timing for bubble sort with ", len(arr), " sized array ---->", (end - start) * 10**3, "ms")
 
     plt.plot(nums, b_sort, label = 'bubbleSort')
-    plt.plot(nums, s_sort, label = 'sortingLabel')
+    plt.plot(nums, s_sort, label = 'selectionSort')
     plt.xlabel('array size')
     plt.ylabel('timing')
     plt.legend()
