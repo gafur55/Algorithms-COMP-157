@@ -1,13 +1,10 @@
-from operator import truediv
-
-
 def reverse_str(string):
     if string == "":
         return ""
     else:
         return reverse_str(string[1:]) + string[:1]
 
-# arr = "rufag sevol anaili"
+# arr = "kayak"
 # newarr = reverse_str(arr)
 # print(newarr)
 
@@ -31,7 +28,7 @@ def dec_binary(num, result):
         dec_binary(num//2, result) 
         
 # x = ''
-# print(dec_binary(25, x))
+# print(dec_binary(25, x)
 
 def sum_till(num):
     if num == 0:
@@ -42,10 +39,20 @@ def sum_till(num):
 # print(sum_till(3))
 
 
-def power_sert(arr, size):
-    if size == -1:
-        return [""]
+def power_set(arr):         
+    if len(arr) == 1:
+        return ["", arr[0]]
     else:
-        for i in range (size):
-            arr2.append(arr)
-            return 
+        # arr.pop(len(arr) - 1)
+        smaller_arr = power_set(arr[:-1])
+        bigger_arr = []
+        # bigger_arr = smaller_arr
+        for i in smaller_arr:
+            bigger_arr.append(i)
+        for i in smaller_arr:
+            x = i + ' ' + arr[len(arr) - 1]
+            bigger_arr.append(x)
+        
+        return bigger_arr
+
+print(power_set(['1', '2', '3']))
