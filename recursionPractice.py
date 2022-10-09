@@ -56,3 +56,6 @@ def power_set(arr):
         return bigger_arr
 
 print(power_set(['1', '2', '3']))
+
+# def binary_search(arr, num, index):
+#     if arr[index] == num:

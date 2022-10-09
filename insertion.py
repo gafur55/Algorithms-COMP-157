@@ -6,11 +6,9 @@ def swap(arr, x, index_x, y, index_y):
 
 def insertion(arr):
     for i in range(1, len(arr)):
-        print(arr)
         current = arr[i]
         j = i - 1
         while j >= 0 and arr[j] > current:
-            
             swap(arr, arr[j], j, arr[j + 1], j+1)
             current = arr[j]
             j -= 1
