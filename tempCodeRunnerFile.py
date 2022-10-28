@@ -1,34 +1,6 @@
-def quick_sort(arr, low, high):
-    if(low < high):
-        s = partition(arr, low, high)
-        quick_sort(arr, low, s - 1)
-        quick_sort(arr, s+1, high)
+nums = [7, 2, 9, 3, 1, 6, 7, 8, 4] 
 
-def partition(arr, l, h):
-    pivot = arr[l]
-    i = l + 1
-    j = h
-    while True:
-        while i <= j and arr[i] <= pivot:
-            i += 1
-        while i <= j and arr[j] >= pivot:
-            j -= 1
-        if i <= j:
-            (arr[i], arr[j]) = (arr[j], arr[i])
-        else:
-            break
-    
-    (arr[l], arr[j]) = (arr[j], arr[l])
-    return j
-data = ['e', 'x', 'a', 'm', 'p', 'l', 'e']
-print("Unsorted Array")
-print(data)
+(min, max) = partition(nums, 0, len(nums) - 1)
 
-size = len(data)
-
-quick_sort(data, 0, size - 1)
-
-print('Sorted Array in Ascending Order:')
-print(data)
-
-
+print("The minimum element in the list is", min)
+print("The maximum element in the list is", max)
